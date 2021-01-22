@@ -14,6 +14,25 @@
          
 
         }
+        public function deleteProdductDef($pId){
+            $deleteQuery = "DELETE FROM user_post WHERE pId= $pId ";
+            $deleteQueryResult = $this->db->delete($deleteQuery);
+            if($deleteQueryResult){
+              $deleteMessage = "Product deleted successfully!";
+              return $deleteMessage;
+              
+            }
+        }
+
+        public function deleteTuitionDef($tId){
+            $deleteQuery = "DELETE FROM s_tutor WHERE tid= $tId ";
+            $deleteQueryResult = $this->db->delete($deleteQuery);
+            if($deleteQueryResult){
+              $deleteMessage = "Tuition offer deleted successfully!";
+              return $deleteMessage;
+              
+            }
+        }
         
 
 

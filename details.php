@@ -60,13 +60,13 @@
                 <!-- The slideshow -->
                 <div class="carousel-inner" style="max-height:400px;">
                   <div class="carousel-item active">
-                    <img src="images/bt.jpg" style="max-width:450px;" alt="product">
+                    <img src="images/<?php echo $result['image']; ?>" style="max-width:450px;" alt="product">
                   </div>
                   <div class="carousel-item">
-                    <img src="images/default.jpg" style="max-width:450px;" alt="product">
+                    <img src="images/<?php echo $result['image']; ?>" style="max-width:450px;" alt="product">
                   </div>
                   <div class="carousel-item">
-                    <img src="images/bt.jpg" style="max-width:450px;" alt="product">
+                    <img src="images/<?php echo $result['image']; ?>" style="max-width:450px;" alt="product">
                   </div>
                 </div>
 
@@ -84,19 +84,19 @@
            
             <div class="col-12 product-image-thumbs">
               <div class="product-image-thumb ">
-                <img src="images/bt.jpg" alt="Product Image" />
+                <img src="images/<?php echo $result['image']; ?>" alt="Product Image" />
               </div>
               <div class="product-image-thumb">
-                <img src="images/default.jpg" alt="Product Image" />
+                <img src="images/<?php echo $result['image']; ?>" alt="Product Image" />
               </div>
               <div class="product-image-thumb">
-                <img src="images/bt.jpg" alt="Product Image" />
+                <img src="images/<?php echo $result['image']; ?>" alt="Product Image" />
               </div>
               <div class="product-image-thumb">
-                <img src="images/default.jpg" alt="Product Image" />
+                <img src="images/<?php echo $result['image']; ?>" alt="Product Image" />
               </div>
               <div class="product-image-thumb">
-                <img src="images/bt.jpg" alt="Product Image" />
+                <img src="images/<?php echo $result['image']; ?>" alt="Product Image" />
               </div>
             </div>
           </div>
@@ -116,7 +116,7 @@
 
             <div class=" py-2 px-3 mt-4" style="background-color: cadetblue;">
               <h2 class="mb-0">
-              Price : <?php  echo $result['price']; ?> $
+              Price : <?php  echo $result['price']; ?> ৳
               </h2>
               <h4 class="mt-0">
                 <small> <?php  echo $result['nagotiation']; ?></small>
@@ -124,10 +124,10 @@
             </div>
 
             <div class="mt-4">
-              <div class="btn btn-primary btn-lg btn-flat">
+              <a href="messenger.php?pid=<?php echo $result['pId'];   ?>" class="btn btn-primary btn-lg btn-flat">
                 <i class="fas fa-envelope fa-lg mr-2"></i>
                Send A Message
-              </div>
+              </a>
 
               <div class="btn btn-default btn-lg btn-flat">
                 <i class="fas fa-phone fa-lg mr-2"></i>

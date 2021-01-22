@@ -9,252 +9,128 @@
     <!-- Content Header (Page header) -->
     
       <div class="container">
-        <div class="row">
+        
         <div class="col-md-12 " style="margin-top:55px;">
           <div style="background-color: cadetblue;text-align: center;padding: 20px;">
             <h3>Welcome To Sadhitro !!</h3>
           </div>
     </div>
-          <!-- /.col -->
-          
-         
-      </div>
-        <div class="row" style="margin-top:10px;">
-          <div class="col-md-3">
-            <div>
-              <a href="#" class="list-group-item " style="background:#187F7F;color:#fff;text-align:center;">Category
-                  </a>
-                  <ul class="list-group">
-                
-                    <a href="category.php?com= " style="color:#187F7F;"><li class="list-group-item">Mobile
-                      <span class="label label-primary pull-right">34</span>
-                                        </li></a>
-                    <a href="category.php?com= " style="color:#187F7F;"><li class="list-group-item">Mobile
-                      <span class="label label-primary pull-right">34</span>
-                                        </li></a>
-                       <a href="category.php?com= " style="color:#187F7F;"><li class="list-group-item">Mobile
-                       <span class="label label-primary pull-right">34</span>
-                                        </li></a>
-                     
-                  </ul>
-                 
+    <div class="row mt-3">
+      <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+       BUY & SELL
+       <a href="buysell.php" class="stretched-link"></a>
+        </div>
+        </div><!-- /.card -->
+      </div><!-- /.col-->
+      <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+        JOB CIRCULAR
+        <a href="circular.php" class="stretched-link"></a>
+        </div>
+        </div><!-- /.card -->
+      </div><!-- /.col-->
+      <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+        Tutor
+        <a href="tutor.php" class="stretched-link"></a>
+        </div>
+        </div><!-- /.card -->
+      </div><!-- /.col-->
+      </div><!-- /.row -->
+      <div class="row mt-3">
+      <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+        <h3 style="text-align:center;margin:2px;border-bottom:2px solid cadetblue;">BUY&SELL Category</h3>
+          <div class="row mt-1 d-flex justify-content-center" >
+          <?php
 
-
-              </div>
-              <!-- /.div -->
-            
-          </div>
-          <!-- /.col -->
-          <div class="col-md-6">
-              <div>
-                  <ol class="breadcrumb">
-                      <li><a href="#">Home  </a></li>
-                     
-              </div>
-              <!-- /.div -->
-                  
-                  <!-- /.col -->
+            $cQuery = "SELECT * FROM category WHERE ctype = 'buysell' ";
+            $qResult = $db->select($cQuery);
+            if($qResult){
+              while($result = $qResult->fetch_assoc()){
+                ?>
+            <div class="card m-1" style="width:65px;">
+                        <img src="Admin/pages/forms/image/<?php echo $result['cimage']; ?>" style="width:65px;">
+                        <a class="stretched-link" href="catbs.php?cat='<?php echo $result['cname'];?>' "></a>
+                      </div> 
                 <?php
-                $query = "SELECT * FROM user_post order by pId DESC";
-                $qResult = $db->select($query);
-                if($qResult){
-                  while($result = $qResult->fetch_assoc()){
-                   ?>
-
-                    <div class="card">
-                      
-                      <div class="card-body">
-                        <div style="float: left;height: 100px;width: 110px;">
-                          <img src="ace.jpg" style="height: 100px;width: 105px; border:1px solid #444;" alt="none">
-                        </div>
-                    
-                      <div style="padding: 4px;padding: 10;">  
-                        <p style="font-size: 18px;line-height: 14px;"><?php echo $result['title']; ?></p> 
-                        <hr>
-                        <p style="font-size: 14px;line-height: 4px;">Category</p> 
-                        <p style="font-size: 12px;line-height: 4px;">Price : 00$</p> 
-                        <a href="details.php?id=<?php echo $result['pId'];?>" class="stretched-link"></a>
-                       
-                        
-                        
-                      
-                      </div>
-                     
-                      </div>
-                      <p style="text-align: end;line-height: 2px;padding-right: 10px;"><?php echo $result['time']; ?></p>
-                  </div>
-                  <!-- Ends single product-->
-
-
-<?php
-                  }
-                }
-
+              }
+            }
 
 ?>
-                    <div class="card">
-                      
-                      <div class="card-body">
-                        <div style="float: left;height: 100px;width: 110px;">
-                          <img src="ace.jpg" style="height: 100px;width: 105px; border:1px solid #444;" alt="none">
-                        </div>
-                    
-                      <div style="padding: 4px;padding: 10;">  
-                        <p style="font-size: 18px;line-height: 14px;">Hello world! welcome to my website!</p> 
-                        <hr>
-                        <p style="font-size: 14px;line-height: 4px;">Category</p> 
-                        <p style="font-size: 12px;line-height: 4px;">Price : 00$</p> 
-                       
-                       
-                        
-                        
-                      
-                      </div>
-                     
-                      </div>
-                      <p style="text-align: end;line-height: 2px;padding-right: 10px;">Time and date</p>
-                  </div>
-                  <!-- Ends single product-->
-                  <div class="card">
-                      
-                    <div class="card-body">
-                      <div style="float: left;height: 100px;width: 110px;">
-                        <img src="ace.jpg" style="height: 100px;width: 105px; border:1px solid #444;" alt="none">
-                      </div>
-                  
-                    <div style="padding: 4px;padding: 10;">  
-                      <p style="font-size: 18px;line-height: 14px;">Hello world! welcome to my website!</p> 
-                      <hr>
-                      <p style="font-size: 14px;line-height: 4px;">Category</p> 
-                      <p style="font-size: 12px;line-height: 4px;">Price : 00$</p> 
-                     
-                     
-                      
-                      
-                    
-                    </div>
-                   
-                    </div>
-                    <p style="text-align: end;line-height: 2px;padding-right: 10px;">Time and date</p>
-                </div>
-                <div class="card">
-                      
-                  <div class="card-body">
-                    <div style="float: left;height: 100px;width: 110px;">
-                      <img src="ace.jpg" style="height: 100px;width: 105px; border:1px solid #444;" alt="none">
-                    </div>
-                
-                  <div style="padding: 4px;padding: 10;">  
-                    <p style="font-size: 18px;line-height: 14px;">Hello world! welcome to my website!</p> 
-                    <hr>
-                    <p style="font-size: 14px;line-height: 4px;">Category</p> 
-                    <p style="font-size: 12px;line-height: 4px;">Price : 00$</p> 
-                   
-                   
-                    
-                    
-                  
-                  </div>
-                 
-                  </div>
-                  <p style="text-align: end;line-height: 2px;padding-right: 10px;">Time and date</p>
-              </div>
-              <div class="card">
-                      
-                <div class="card-body">
-                  <div style="float: left;height: 100px;width: 110px;">
-                    <img src="ace.jpg" style="height: 100px;width: 105px; border:1px solid #444;" alt="none">
-                  </div>
-              
-                <div style="padding: 4px;padding: 10;">  
-                  <p style="font-size: 18px;line-height: 14px;">Hello world! welcome to my website!</p> 
-                  <hr>
-                  <p style="font-size: 14px;line-height: 4px;">Category</p> 
-                  <p style="font-size: 12px;line-height: 4px;">Price : 00$</p> 
-                 
-                 
-                  
-                  
-                
-                </div>
-               
-                </div>
-                <p style="text-align: end;line-height: 2px;padding-right: 10px;">Time and date</p>
-            </div>
-            <div class="card">
-                      
-              <div class="card-body">
-                <div style="float: left;height: 100px;width: 110px;">
-                  <img src="ace.jpg" style="height: 100px;width: 105px; border:1px solid #444;" alt="none">
-                </div>
-            
-              <div style="padding: 4px;padding: 10;">  
-                <p style="font-size: 18px;line-height: 14px;">Hello world! welcome to my website!</p> 
-                <hr>
-                <p style="font-size: 14px;line-height: 4px;">Category</p> 
-                <p style="font-size: 12px;line-height: 4px;">Price : 00$</p> 
-               
-               
-                
-                
-              
-              </div>
-             
-              </div>
-              <p style="text-align: end;line-height: 2px;padding-right: 10px;">Time and date</p>
+
           </div>
-          <div class="card">
-                      
-            <div class="card-body">
-              <div style="float: left;height: 100px;width: 110px;">
-                <img src="ace.jpg" style="height: 100px;width: 105px; border:1px solid #444;" alt="none">
-              </div>
-          
-            <div style="padding: 4px;padding: 10;">  
-              <p style="font-size: 18px;line-height: 14px;">Hello world! welcome to my website!</p> 
-              <hr>
-              <p style="font-size: 14px;line-height: 4px;">Category</p> 
-              <p style="font-size: 12px;line-height: 4px;">Price : 00$</p> 
-             
-             
-              
-              
-            
-            </div>
-           
-            </div>
-            <p style="text-align: end;line-height: 2px;padding-right: 10px;">Time and date</p>
         </div>
-            
+        </div><!-- /.card -->
+      </div><!-- /.col-->
+      <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+        <h3 style="text-align:center;margin:2px;border-bottom:2px solid cadetblue;">CIRCULAR Category</h3>
+          <div class="row mt-1 " >
+          <div class="temp">
+            <ul>
+                <a href="#"><li>Govt.</li></a>
+                <a href="#"><li>Private</li></a>
+                <a href="#"><li>NGU</li></a>
+            </ul>
+
           </div>
-          <!-- /.col -->
-          <div class="col-md-3">
-                  <div class="card">
-                    <div class="card-body">
-                      Hello world! welcome to my website!Here you can sell your used product and also you can buy used product from here.
-                      Hello world! welcome to my website!Here you can sell your used product and also you can buy used product from here
-                      Hello world! welcome to my website!Here you can sell your used product and also you can buy used product from here
-                      Hello world! welcome to my website!Here you can sell your used product and also you can buy used product from here
-                      Hello world! welcome to my website!Here you can sell your used product and also you can buy used product from here
-                    </div>
-                </div>
-      </div>
+          <?php
+
+              $cQuery = "SELECT * FROM category WHERE ctype = 'circular' ";
+              $qResult = $db->select($cQuery);
+              if($qResult){
+                while($result = $qResult->fetch_assoc()){
+    ?>
+<div class="card m-1" style="width:65px;">
+            
+<img src="Admin/pages/forms/image/<?php echo $result['cimage']; ?>" style="width:65px;">
+                        <a class="stretched-link" href="catbs.php?cat='<?php echo $result['cname'];?>' "></a>
+            
+          </div> 
+    <?php
+  }
+}
+
+?>
+
+          </div>
+        </div>
+        </div><!-- /.card -->
+      </div><!-- /.col-->
+      <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+      <!--  <h3 style="text-align:center;margin:2px;border-bottom:2px solid cadetblue;">LOST&FOUND LOCATION</h3>
+          -->
+          <h3 style="text-align:center;margin:2px;border-bottom:2px solid cadetblue;">Education</h3>
+          Upcomming...
+          <br>
+
+        <ul>
+        <li>Offline Tutor</li>
+        <li>Online Tutor</li>
+        <li>Perticular Course Support</li>
+        <li>Assignment Support</li>
+        <li>Project Support</li>
+
+
+     </div>
+        </div><!-- /.card -->
+      </div><!-- /.col-->
+      </div><!-- /.row -->
       </div><!-- /.container-fluid -->
    
   
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-    <div class="p-3">
-      <h5>Title</h5>
-      <p>Sidebar content</p>
-    </div>
-  </aside>
-  <!-- /.control-sidebar -->
 
  
 

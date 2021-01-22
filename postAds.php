@@ -6,7 +6,7 @@
 
 
 		         if($_SERVER["REQUEST_METHOD"]=="POST"){
-             $permited = array('jpg', 'jpeg', 'png', 'gif');
+           $permited = array('jpg', 'jpeg', 'png', 'gif', 'pdf');
             $file_name    = $_FILES['image']['name'];
             $file_size    = $_FILES['image']['size'];
             $file_tmpname = $_FILES['image']['tmp_name'];
@@ -22,16 +22,7 @@
                .implode(', ', $permited)."</span>";
               } else{
            move_uploaded_file($file_tmpname,"images/".$uploaded_image);
-            //move_uploaded_file($file_tmpname,  $uploaded_image);
-
-            /*$query     = "INSERT INTO  tbl_image(image) values('$uploaded_image')";
-            $inserted_rows =$db->insert($query);
-
-            if($inserted_rows){
-              echo "<span class='success'>Image inserted succefully</span>";
-            }else{
-               echo "<span class='error'>Image is not inserted succefully</span>";
-            }*/
+           
 
               }
 			

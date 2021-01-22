@@ -3,11 +3,13 @@ include "config/config.php";
 include "lib/database.php";
 include "lib/session.php";
 include 'classes/user.php';
+include 'classes/userPost.php';
 
 
 $db=new Database();
 $sn= new Session();
 $ur = new User();
+$urp = new userPost();
 
 $sn::init();
 
@@ -44,7 +46,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
  <nav class="main-header navbar navbar-expand-md navbar-light navbar-white fixed-top">
   <div class="container">
     <a href="index.php" class="navbar-brand">
-      <img src="{% static 'sheba/dist/img/logo.jpg' %}" alt="Moricika" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="images/logo.jpg" alt="Moricika" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">সাধিত্র</span>
     </a>
 
@@ -54,29 +56,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Left navbar links -->
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a href="index.php" class="nav-link">Home</a>
+          <a href="buysell.php" class="nav-link">B & S</a>
         </li>
-       
+     <!--   <li class="nav-item">
+          <a href="offeredjob.php" class="nav-link">OFFERED JOB</a>
+        </li> -->
         <li class="nav-item">
-          <a href="{% url 'developer' %}" class="nav-link">Developer</a>
+          <a href="circular.php" class="nav-link">JOB CIRCULAR</a>
         </li>
+        <li class="nav-item">
+          <a href="tutor.php" class="nav-link">TUTOR</a>
+        </li>
+        
+        
        
             <!-- End Level two -->
           </ul>
         </li>
       </ul>
 
-      <!-- SEARCH FORM -->
-      <form class="form-inline ml-0 ml-md-3">
-        <div class="input-group input-group-sm">
-          <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-navbar" type="submit">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-        </div>
-      </form>
     </div>
 
     <!-- Right navbar links -->
@@ -114,6 +112,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <span class="float-right text-muted text-sm"></span>
           </a>
           <div class="dropdown-divider"></div>
+          <a href="posttutor.php" class="dropdown-item">
+            <i class="fas fa-file-alt mr-2"></i> Be Tutor
+            <span class="float-right text-muted text-sm"></span>
+          </a>
+        <!--  <div class="dropdown-divider"></div>
+          <a href="postAds.php" class="dropdown-item">
+            <i class="fas fa-file-alt mr-2"></i> Offer Job 
+            <span class="float-right text-muted text-sm"></span>
+          </a> -->
+          <div class="dropdown-divider"></div>
           <a href="?action=logout" class="dropdown-item">
             <i class="fas fa-sign-out-alt mr-2"></i> Logout
             <span class="float-right text-muted text-sm"></span>
@@ -130,8 +138,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
          
       <!-- Without login menu-->
     
-
-     
       <li class="nav-item ">
         <a href="login.php" class="nav-link"> <i class="far fa-sign-in-alt" style="margin-right: 3px;"></i>Sign In</a>
        

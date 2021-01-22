@@ -1,15 +1,18 @@
-<div class="col-md-12 footer-box">
+<div class="col-md-12 footer-box bg-white">
 
   <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-4 m-3">
+      
           <strong>Download Our App</strong>
           <hr>
-          <p>Choice one </p>
+          Upcomming...
+         <p>Choice one </p> 
          <button class="btn btn-primary">Play Store</button>
          <button class="btn btn-info">App Store</button>
+    
       </div>
   
-      <div class="col-md-4">
+      <div class="col-md-4 m-3">
           <strong>Our Location</strong>
           <hr>
           <p>
@@ -21,7 +24,7 @@
   
          
       </div>
-      <div class="col-md-4 social-box">
+      <div class="col-md-3 social-box m-3">
           <strong>We are Social </strong>
           <hr>
           <a href="#"><i class="fa fa-facebook-square fa-3x "></i></a>
@@ -37,7 +40,7 @@
   <hr>
   </div>
   <!-- /.col -->
-  <div class="col-md-12 end-box ">
+  <div class="col-md-12 end-box mb-3 d-flex justify-content-center bg-white">
   &copy; 2020 | &nbsp; All Rights Reserved | &nbsp; www.moricika.com | &nbsp; 24x7 support | &nbsp; Email us: info@moricika.com
   </div>
 </div>

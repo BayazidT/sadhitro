@@ -2,6 +2,23 @@
   include 'include/header.php';
   $sn::checkSession();
 
+  $userId = $sn->get('userId');
+
+  
+
+?>
+<?php
+      if(isset($_GET['deletePId'])){
+        $pid = $_GET['deletePId'];
+        $deleteUserProduct = $urp->deleteProdductDef( $pid);
+
+      }
+      if(isset($_GET['deleteTId'])){
+        $tId = $_GET['deleteTId'];
+        $deleteUserProduct = $urp->deleteTuitionDef( $tId);
+
+      }
+
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper" style="margin-top:55px;">
@@ -36,22 +53,117 @@
                 </p>
                 <p>Hobby: Traveling & Writing Travel Stories</p>
                 <hr />
-                <p>Projects</p>
-                <ul>
-                  <li>Moricika</li>
+                <p>Tutor Post</p>
+                <?php
 
-                  <li>AlpoSholpo</li>
-                  <li>e-Library System</li>
-                  <li>Work Confirmation(IoT)</li>
-                  <li>Aqu_Fish_feeder</li>
-                  <li>e-Toolsbd</li>
-                  <li>Dream Travler</li>
-                  <li>Digital Security System</li>
+                  if(isset($deleteUserProduct)){
+                    echo "<p style='text-align:center; color:green;'>".$deleteUserProduct."</p>";
+                  }
+                $query = "SELECT * FROM s_tutor WHERE userid = '$userId' order by tid DESC";
+                $qResult = $db->select($query);
+                if($qResult){
+                  while($result = $qResult->fetch_assoc()){
+                   ?>
 
-                  <li>e-Shop</li>
-                  <li>Tuition Assistance</li>
-                  <li>Little School</li>
-                </ul>
+                    <div class="card">
+                      
+                      <div class="card-body">
+                        <div style="float: left;height: 100px;width: 110px;">
+                          <img src="images/<?php echo $result['image']; ?>" style="height: 100px;width: 105px; border:1px solid #444;" alt="none">
+                        </div>
+                    
+                      <div style="padding: 4px;padding: 10;">  
+                      <a href="details.php?id=<?php echo $result['tid'];?>" ><p style="font-size: 18px;line-height: 10px;"><?php echo $result['name']; ?></p>  </a> 
+            
+            
+                        <hr>
+                  
+                        <p style="font-size: 14px;line-height: 4px;"><?php echo $result['standard']; ?></p> 
+                        <p style="font-size: 12px;line-height: 4px;">Subject : <?php echo $result['subject']; ?></p> 
+                       
+                       
+                        
+                        
+                      
+                      </div>
+                      <a
+                class="btn btn-secondary btn-sm mt-1 mb-1"
+                href="update.php?tid=<?php echo $result['tid'];?>"
+                >Update</a
+              >
+              <a onclick="return confirm('Are you sure to delete ?');" href="?deleteTId=<?php echo $result['tid'];?>"
+                class="btn btn-danger btn-sm mt-1 mb-1"
+            
+                >Delete</a
+              >
+                      </div>
+                      <p style="text-align: end;line-height: 2px;padding-right: 10px;"></p>
+                  </div>
+                  <!-- Ends single product-->
+
+
+<?php
+                  }
+                }else{
+                  echo "<p class='text-center danger'>You don't have any ads here!</p>";
+                }
+
+
+?>
+                <hr />
+                <p>Posts Details</p>
+                <?php
+                $query = "SELECT * FROM user_post WHERE userId = '$userId' order by pId DESC";
+                $qResult = $db->select($query);
+                if($qResult){
+                  while($result = $qResult->fetch_assoc()){
+                   ?>
+
+                    <div class="card">
+                      
+                      <div class="card-body">
+                        <div style="float: left;height: 100px;width: 110px;">
+                          <img src="images/<?php echo $result['image']; ?>" style="height: 100px;width: 105px; border:1px solid #444;" alt="none">
+                        </div>
+                    
+                      <div style="padding: 4px;padding: 10;">  
+                      <a href="details.php?id=<?php echo $result['pId'];?>" ><p style="font-size: 18px;line-height: 10px;"><?php echo $result['title']; ?></p>  </a> 
+            
+            
+                        <hr>
+                  
+                        <p style="font-size: 14px;line-height: 4px;"><?php echo $result['category']; ?></p> 
+                        <p style="font-size: 12px;line-height: 4px;">Price : <?php echo $result['price']; ?></p> 
+                       
+                       
+                        
+                        
+                      
+                      </div>
+                      <a
+                class="btn btn-secondary btn-sm mt-1 mb-1"
+                href="update.php?pid=<?php echo $result['pId'];?>"
+                >Update</a
+              >
+              <a onclick="return confirm('Are you sure to delete ?');" href="?deletePId=<?php echo $result['pId'];?>"
+                class="btn btn-danger btn-sm mt-1 mb-1"
+            
+                >Delete</a
+              >
+                      </div>
+                      <p style="text-align: end;line-height: 2px;padding-right: 10px;"><?php echo $result['time']; ?></p>
+                  </div>
+                  <!-- Ends single product-->
+
+
+<?php
+                  }
+                }else{
+                  echo "<p class='text-center danger'>You don't have any ads here!</p>";
+                }
+
+
+?>
                 <!--Project section ends-->
                 <!--Research section starts-->
                 <hr />
